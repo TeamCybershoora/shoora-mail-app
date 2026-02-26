@@ -89,6 +89,15 @@ export class ImapWatcherManager {
       try {
         await this._connectAndWatch(state);
       } catch (error) {
+        if (this._isFatalAccountAuthError(error)) {
+          logger.error('IMAP watcher disabled for account due to non-recoverable auth state', {
+            accountId: state.accountId,
+            error: error.message,
+          });
+          state.stopRequested = true;
+          break;
+        }
+
         logger.warn('IMAP watcher loop error', {
           accountId: state.accountId,
           error: error.message,
@@ -334,5 +343,18 @@ export class ImapWatcherManager {
     configured.forEach(push);
     push(this.gmailConfig.imapHost);
     return out;
+  }
+
+  _isFatalAccountAuthError(error) {
+    const message = String(error?.message || '').toLowerCase();
+    if (!message) {
+      return false;
+    }
+
+    return (
+      message.includes('could not be decrypted') ||
+      message.includes('relink account') ||
+      message.includes('sign in again')
+    );
   }
 }
