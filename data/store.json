@@ -1,0 +1,721 @@
+{
+  "users": [
+    {
+      "id": "c6242419-581f-4587-a0d5-8cfbfa2c8ee5",
+      "email": "demo@shoora.local",
+      "passwordHash": "$2a$12$HNTQJAghY157TEdCTGW5ousfZ.PjDFeO.QzwA4h/OZ0kwjlAtggzm",
+      "createdAt": "2026-02-20T05:53:58.214Z"
+    },
+    {
+      "id": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "email": "aniket@cybershoora.in",
+      "passwordHash": "$2a$12$yzp3JubP3P2Ym3QosgD6QefuE2t/E8BpBH5UK.xHdXhtU5PQnMctC",
+      "createdAt": "2026-02-20T07:07:06.956Z",
+      "updatedAt": "2026-02-21T05:07:58.323Z"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "a6726caf-6b49-4488-80e0-e80c1384e5e9",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "provider": "stackmail",
+      "providerEmail": "aniket@cybershoora.in",
+      "displayName": "aniket@cybershoora.in",
+      "scopes": [],
+      "tokenCipher": null,
+      "refreshCipher": null,
+      "secretCipher": "TlfT0Eh7eCyksuiP.OEeSsOyf1mLwdg.IKl8GlRZ4ZO2q5kcJd-1dg",
+      "expiresAt": 0,
+      "profile": null,
+      "createdAt": "2026-02-20T07:07:06.962Z",
+      "updatedAt": "2026-02-21T05:07:58.328Z"
+    }
+  ],
+  "devices": [
+    {
+      "id": "8d3469fc-0c4a-445d-8f0a-e2655e4563a7",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "token": "eyjSaS8_TrKrh5dKsnpfs_:APA91bEev1Lqmk4egVLx3zFSdkgTIdwsKLJWaEelqTS_xZPXLU3IWR_VUBCCKJKPoLn9Kfut0UazWCKgDbOSBsvel0o-dwGiVqUmmp5bnVX9yBtqQ_BDMJ8",
+      "tokenHash": "3cca301d20801b3e14ffac7e2ba09b625092e56203de22ff098a201c603fc83c",
+      "platform": "android",
+      "createdAt": "2026-02-21T05:07:58.713Z",
+      "updatedAt": "2026-02-25T05:08:36.789Z"
+    }
+  ],
+  "smtpQueue": [
+    {
+      "id": "09e89e6f-c910-46aa-a74e-2b214e079a47",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "88310000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:14:25.649Z",
+      "updatedAt": "2026-02-21T05:14:44.942Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: Hello",
+        "text": "hello Man I am Fine",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:14:44.941Z"
+    },
+    {
+      "id": "d6dc80a4-1c86-46ba-a202-56b6570a2d67",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "FC4F0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:32:16.708Z",
+      "updatedAt": "2026-02-21T05:32:36.099Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: ahelo asdads",
+        "text": "Hello",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:32:36.099Z"
+    },
+    {
+      "id": "aafff429-13be-4346-95a1-81c45f1595fb",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "FC4F0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:32:37.425Z",
+      "updatedAt": "2026-02-21T05:32:57.501Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: ahelo asdads",
+        "text": "Hello",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:32:57.500Z"
+    },
+    {
+      "id": "3e1a21a6-fec1-44d1-9940-63baab77803c",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "FC4F0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:35:49.168Z",
+      "updatedAt": "2026-02-21T05:36:09.563Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "--- Original message ---\nFrom: Paradoxplayz95 <paradoxplayz95@gmail.com>\n<div dir=\"ltr\">sdasdasdasdasdasdas</div>\n\nfhghgtg",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:36:09.562Z"
+    },
+    {
+      "id": "702945a7-10de-465e-a9ab-50cd32f9d5f8",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "FC4F0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:36:10.681Z",
+      "updatedAt": "2026-02-21T05:36:30.980Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "--- Original message ---\nFrom: Paradoxplayz95 <paradoxplayz95@gmail.com>\n<div dir=\"ltr\">sdasdasdasdasdasdas</div>\n\nfhghgtg",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:36:30.979Z"
+    },
+    {
+      "id": "2eda272d-3973-497f-80d0-e7e5667dd76d",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "08630000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:36:47.352Z",
+      "updatedAt": "2026-02-21T05:37:08.182Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "--- Original message ---\nFrom: Paradoxplayz95 <paradoxplayz95@gmail.com>\n<div dir=\"ltr\">sdasdasdasdasdasdas</div>\n\nfhghgtg",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:37:08.182Z"
+    },
+    {
+      "id": "2a4011b2-494f-48d3-9b18-39180458b162",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "08630000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:37:09.694Z",
+      "updatedAt": "2026-02-21T05:37:29.445Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "--- Original message ---\nFrom: Paradoxplayz95 <paradoxplayz95@gmail.com>\n<div dir=\"ltr\">sdasdasdasdasdasdas</div>\n\nfhghgtg",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:37:29.444Z"
+    },
+    {
+      "id": "7ae33e5c-c0d6-4d77-a075-70dc9a3abe2b",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "606A0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:40:03.081Z",
+      "updatedAt": "2026-02-21T05:40:26.054Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "aniket awasthi\n\nBest regards,\naniket",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:40:26.053Z"
+    },
+    {
+      "id": "d3e37b95-ea15-47c4-9f6d-0e4169597bc1",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "606A0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:40:27.215Z",
+      "updatedAt": "2026-02-21T05:40:47.375Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "aniket awasthi\n\nBest regards,\naniket",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:40:47.374Z"
+    },
+    {
+      "id": "4362aa68-569f-40eb-a15d-90bec45afbb2",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "606A0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:41:19.813Z",
+      "updatedAt": "2026-02-21T05:41:38.980Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "aniket awasthi\n\nBest regards,\naniket",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:41:38.980Z"
+    },
+    {
+      "id": "e1fbc517-9192-4bd6-b6f1-dfed02fd387c",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "606A0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:41:40.499Z",
+      "updatedAt": "2026-02-21T05:42:00.377Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "aniket awasthi\n\nBest regards,\naniket",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:42:00.376Z"
+    },
+    {
+      "id": "b801b6e5-fd1b-4500-a044-75b3c3d1a3dc",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "606A0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:42:53.173Z",
+      "updatedAt": "2026-02-21T05:43:14.478Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "aniket awasthi\n\nBest regards,\naniket",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:43:14.477Z"
+    },
+    {
+      "id": "0f3a8b24-6228-4ed0-ab12-2ca49d8d9d83",
+      "status": "failed",
+      "attempts": 4,
+      "nextRunAt": null,
+      "lastError": "606A0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:openssl\\ssl\\record\\methods\\tlsany_meth.c:85:\n",
+      "createdAt": "2026-02-21T05:43:15.582Z",
+      "updatedAt": "2026-02-21T05:43:35.831Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "aniket awasthi\n\nBest regards,\naniket",
+        "html": "",
+        "attachments": []
+      },
+      "failedAt": "2026-02-21T05:43:35.830Z"
+    },
+    {
+      "id": "97f50811-ef61-4077-a0f9-5aeebb60752c",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-21T05:50:43.564Z",
+      "updatedAt": "2026-02-21T05:50:46.534Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "anistrlord2006@gmail.com"
+        ],
+        "subject": "Hello My friend",
+        "text": "Tis is a test mail.\n\nBest regards,\naniket",
+        "html": "",
+        "attachments": []
+      },
+      "sentAt": "2026-02-21T05:50:46.533Z",
+      "messageId": "<58b49078-2eff-3204-30d6-a0b4e1c70b99@cybershoora.in>",
+      "acceptedRecipients": [
+        "anistrlord2006@gmail.com"
+      ],
+      "response": "250 OK id=1vtft8-0000000G6EQ-1Prx"
+    },
+    {
+      "id": "2a2b230c-fe60-4c6b-a876-b31ea4dd39e3",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-21T05:52:23.806Z",
+      "updatedAt": "2026-02-21T05:52:26.752Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: asdaasasdasasdfffff",
+        "text": "hello buddy how are ?\n\nBest regards,\naniket",
+        "html": "",
+        "attachments": []
+      },
+      "sentAt": "2026-02-21T05:52:26.751Z",
+      "messageId": "<0be5f699-49b8-997a-dfc4-7c183f156b48@cybershoora.in>",
+      "acceptedRecipients": [
+        "paradoxplayz95@gmail.com"
+      ],
+      "response": "250 OK id=1vtfuk-00000000wVW-2fHL"
+    },
+    {
+      "id": "e73870f9-c72c-46c0-b7f8-10031089447f",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-21T06:17:19.505Z",
+      "updatedAt": "2026-02-21T06:17:27.758Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "aniket@cybershoora.in"
+        ],
+        "subject": "hggh",
+        "text": "ftcytrcytvc",
+        "html": "",
+        "attachments": []
+      },
+      "sentAt": "2026-02-21T06:17:27.757Z",
+      "messageId": "<0980a938-93c9-8aa9-0666-e55985af8247@cybershoora.in>",
+      "acceptedRecipients": [
+        "aniket@cybershoora.in"
+      ],
+      "response": "250 OK id=1vtgIt-00000001PpB-3SJk",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    },
+    {
+      "id": "4357a4d7-798e-46a5-bf2b-a5ad50636705",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-21T06:18:15.635Z",
+      "updatedAt": "2026-02-21T06:18:24.587Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: ahelo asdads",
+        "text": "👋 dsgfdsg 😘",
+        "html": "",
+        "attachments": []
+      },
+      "sentAt": "2026-02-21T06:18:24.586Z",
+      "messageId": "<571765ed-304b-a701-93fe-a273a171d12d@cybershoora.in>",
+      "acceptedRecipients": [
+        "paradoxplayz95@gmail.com"
+      ],
+      "response": "250 OK id=1vtgJo-00000001Qv6-2xhq",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    },
+    {
+      "id": "59bfca0e-0a9a-455f-b968-f8e17408d129",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-21T06:23:59.436Z",
+      "updatedAt": "2026-02-21T06:24:07.696Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: Hello",
+        "text": "hello My friend 😊\n\nBest regards,\naniket",
+        "html": "",
+        "attachments": []
+      },
+      "sentAt": "2026-02-21T06:24:07.695Z",
+      "messageId": "<daac8bee-8582-6c1f-1c40-14cf4705c0e3@cybershoora.in>",
+      "acceptedRecipients": [
+        "paradoxplayz95@gmail.com"
+      ],
+      "response": "250 OK id=1vtgPM-0000000Gk1g-0DfG",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    },
+    {
+      "id": "ba0020b5-c11f-4dee-a937-b50aa792fdda",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-21T08:37:57.989Z",
+      "updatedAt": "2026-02-21T08:38:04.371Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Re: Hello",
+        "text": "how are youmy frienda\n\nBest regards,\naniket",
+        "html": "",
+        "attachments": []
+      },
+      "sentAt": "2026-02-21T08:38:04.370Z",
+      "messageId": "<643d3df0-6c5a-19f6-514b-7bcfb64da502@cybershoora.in>",
+      "acceptedRecipients": [
+        "paradoxplayz95@gmail.com"
+      ],
+      "response": "250 OK id=1vtiUz-00000004AO0-2lHU",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    },
+    {
+      "id": "4703be3f-9dd8-4f7c-98fc-49ac0de60e54",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-21T09:05:20.775Z",
+      "updatedAt": "2026-02-21T09:05:25.419Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "aniket.awasthi.developer@gmail.com"
+        ],
+        "subject": "Re: Fwd: Hello Bro How are you ?",
+        "text": "Aniket is fine",
+        "html": "",
+        "attachments": []
+      },
+      "sentAt": "2026-02-21T09:05:25.418Z",
+      "messageId": "<314a13af-7210-3949-5194-9eeaca792438@cybershoora.in>",
+      "acceptedRecipients": [
+        "aniket.awasthi.developer@gmail.com"
+      ],
+      "response": "250 OK id=1vtivT-00000004kYm-1AJ1",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    },
+    {
+      "id": "af16fb41-fff0-4b1c-9f5d-9cfdfd4975f6",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-21T09:12:06.750Z",
+      "updatedAt": "2026-02-21T09:12:13.890Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "aniket.awasthi.developer@gmail.com"
+        ],
+        "subject": "Re: Dhamfbmdkznn. Nd w",
+        "text": "--- Original message ---\nFrom: Aniket Awasthi Developer <aniket.awasthi.developer@gmail.com>\n<div dir=\"auto\">Bd dnbd nzjs bss</div>\n\nhello Man what is uo",
+        "html": "",
+        "attachments": []
+      },
+      "sentAt": "2026-02-21T09:12:13.889Z",
+      "messageId": "<226c66c4-5591-ba44-6964-240225961d3c@cybershoora.in>",
+      "acceptedRecipients": [
+        "aniket.awasthi.developer@gmail.com"
+      ],
+      "response": "250 OK id=1vtj20-00000004tgY-462e",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    },
+    {
+      "id": "cd19c6d5-0b89-42a7-9603-0b75e18615ee",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-21T09:13:51.330Z",
+      "updatedAt": "2026-02-21T09:13:55.734Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "aniket.awasthi.developer@gmail.com"
+        ],
+        "subject": "Re: Dhamfbmdkznn. Nd w",
+        "text": "hello nam how are you",
+        "html": "",
+        "attachments": []
+      },
+      "sentAt": "2026-02-21T09:13:55.733Z",
+      "messageId": "<762f10bc-11cc-39d7-d4e5-1fc86f0fa0eb@cybershoora.in>",
+      "acceptedRecipients": [
+        "aniket.awasthi.developer@gmail.com"
+      ],
+      "response": "250 OK id=1vtj3h-00000004vxk-2uOm",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    },
+    {
+      "id": "65040bbd-0024-40cf-92cd-7ba8a9c1a851",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-21T09:44:45.042Z",
+      "updatedAt": "2026-02-21T09:44:50.483Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "aniket.awasthi.developer@gmail.com"
+        ],
+        "subject": "Re: Hello My friend",
+        "text": "hello 🤗",
+        "html": "",
+        "attachments": []
+      },
+      "sentAt": "2026-02-21T09:44:50.482Z",
+      "messageId": "<b0cb366f-a0d0-e20c-421c-3ca3487100da@cybershoora.in>",
+      "acceptedRecipients": [
+        "aniket.awasthi.developer@gmail.com"
+      ],
+      "response": "250 OK id=1vtjXb-00000005ZJY-1WxL",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    },
+    {
+      "id": "d74532bf-3290-460f-801a-da5b6f319750",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-24T11:04:58.450Z",
+      "updatedAt": "2026-02-24T11:05:02.972Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "aniket.awasthi.developer@gmail.com"
+        ],
+        "subject": "Hello",
+        "text": "[aniket](https://youtube.com)Hello man How are you",
+        "html": "<div><a href=\"https://youtube.com\">aniket</a>Hello man How are you</div>",
+        "attachments": []
+      },
+      "sentAt": "2026-02-24T11:05:02.971Z",
+      "messageId": "<218fafe1-810a-c5ee-cac1-c8897f19a6f8@cybershoora.in>",
+      "acceptedRecipients": [
+        "aniket.awasthi.developer@gmail.com"
+      ],
+      "response": "250 OK id=1vuqDs-000000083sJ-0MuH",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    },
+    {
+      "id": "b1b4c017-996d-4e2b-bd22-90627931940d",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-24T11:09:19.791Z",
+      "updatedAt": "2026-02-24T11:09:27.455Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "aniket.awasthi.developer@gmail.com",
+          "paradoxplayz95@gmail.com"
+        ],
+        "subject": "Aniket",
+        "text": "Hello Man How are you ? 👋😊",
+        "html": "<div>Hello Man How are you ? 👋😊</div>",
+        "attachments": []
+      },
+      "sentAt": "2026-02-24T11:09:27.454Z",
+      "messageId": "<a98ef628-f195-9e0b-0e82-9db32da9946b@cybershoora.in>",
+      "acceptedRecipients": [
+        "aniket.awasthi.developer@gmail.com",
+        "paradoxplayz95@gmail.com"
+      ],
+      "response": "250 OK id=1vuqI6-0000000APWD-3dX5",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    },
+    {
+      "id": "6bf4bb36-8286-4b15-835c-1781b1928fa1",
+      "status": "sent",
+      "attempts": 1,
+      "nextRunAt": null,
+      "lastError": null,
+      "createdAt": "2026-02-24T11:18:43.088Z",
+      "updatedAt": "2026-02-24T11:18:48.932Z",
+      "userId": "ed89207e-38cc-43c2-bbdb-017a9593c852",
+      "accountId": null,
+      "payload": {
+        "from": "aniket@cybershoora.in",
+        "to": [
+          "anistrlord2006@gmail.com"
+        ],
+        "subject": "hello",
+        "text": "Hello",
+        "html": "<div>Hello</div>",
+        "attachments": []
+      },
+      "sentAt": "2026-02-24T11:18:48.931Z",
+      "messageId": "<5391dd27-2399-03c5-dfe2-40f7e428ccf2@cybershoora.in>",
+      "acceptedRecipients": [
+        "anistrlord2006@gmail.com"
+      ],
+      "response": "250 OK id=1vuqRB-0000000AgcW-3upz",
+      "appendStatus": "appended",
+      "appendedMailbox": "Sent",
+      "appendError": null
+    }
+  ],
+  "metadata": {}
+}
