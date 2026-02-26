@@ -1,5 +1,8 @@
 import { ImapFlow } from 'imapflow';
 
+import { logger } from '../lib/logger.js';
+import { TokenVault } from './tokenVault.js';
+
 import {
   ApiError,
   ConflictError,
@@ -22,6 +25,7 @@ export class AccountService {
     this.stackmailConfig = stackmailConfig;
     this.commandTimeoutMs = commandTimeoutMs;
     this.directLoginEnabled = directLoginEnabled;
+    this.fallbackTokenVaults = this._buildFallbackTokenVaults();
   }
 
   async listAccounts(userId) {
@@ -133,16 +137,23 @@ export class AccountService {
     }
 
     if (account.provider === 'stackmail') {
-      const password = this._openEncryptedValue(account.secretCipher);
+      const opened = this._openEncryptedValue(account.secretCipher);
+      const password = opened.value;
       if (!password) {
         throw new UnauthorizedError('StackMail credentials missing. Please sign in again.');
       }
+
+      let effectiveAccount = account;
+      if (opened.usedFallback) {
+        effectiveAccount = await this._migrateStackmailSecret(account, password);
+      }
+
       return {
-        account,
+        account: effectiveAccount,
         mode: 'password',
-        email: account.providerEmail,
+        email: effectiveAccount.providerEmail,
         password,
-        imapHostCandidates: this._imapHostCandidates(account.providerEmail),
+        imapHostCandidates: this._imapHostCandidates(effectiveAccount.providerEmail),
       };
     }
 
@@ -159,11 +170,17 @@ export class AccountService {
   async getValidAccessToken(account) {
     this._assertGoogleOAuthConfigured();
 
-    const opened = this._openOAuthTokens(account);
+    const openedResult = this._openOAuthTokens(account);
+    const opened = openedResult.value;
+    let effectiveAccount = account;
+    if (openedResult.usedFallback) {
+      effectiveAccount = await this._migrateOAuthTokens(account, opened);
+    }
+
     const threshold = Date.now() + 60_000;
     if (opened.accessToken && Number(opened.expiresAt || 0) > threshold) {
       return {
-        account,
+        account: effectiveAccount,
         accessToken: opened.accessToken,
       };
     }
@@ -183,7 +200,7 @@ export class AccountService {
       expiresAt,
     });
 
-    const updated = await this.userStore.updateAccountTokens(account.id, {
+    const updated = await this.userStore.updateAccountTokens(effectiveAccount.id, {
       tokenCipher: sealed.accessTokenCipher,
       refreshCipher: sealed.refreshTokenCipher,
       expiresAt: sealed.expiresAt,
@@ -301,22 +318,105 @@ export class AccountService {
   }
 
   _openEncryptedValue(cipherText) {
-    try {
-      return this.tokenVault.open(cipherText);
-    } catch {
-      throw new UnauthorizedError(
-        'Stored account credentials could not be decrypted. Check ENCRYPTION_KEY and sign in again.',
-      );
-    }
+    return this._openWithAnyVault(
+      (vault) => vault.open(cipherText),
+      'Stored account credentials could not be decrypted. Check ENCRYPTION_KEY and sign in again.',
+    );
   }
 
   _openOAuthTokens(account) {
-    try {
-      return this.tokenVault.openOAuthTokens(account);
-    } catch {
-      throw new UnauthorizedError(
-        'Stored OAuth tokens could not be decrypted. Check ENCRYPTION_KEY and relink account.',
-      );
+    return this._openWithAnyVault(
+      (vault) => vault.openOAuthTokens(account),
+      'Stored OAuth tokens could not be decrypted. Check ENCRYPTION_KEY and relink account.',
+    );
+  }
+
+  _openWithAnyVault(openFn, unauthorizedMessage) {
+    const vaults = [this.tokenVault, ...this.fallbackTokenVaults];
+    for (let index = 0; index < vaults.length; index += 1) {
+      const vault = vaults[index];
+      try {
+        return {
+          value: openFn(vault),
+          usedFallback: index > 0,
+        };
+      } catch {
+        // Try next vault.
+      }
     }
+
+    throw new UnauthorizedError(unauthorizedMessage);
+  }
+
+  _buildFallbackTokenVaults() {
+    const raw = String(process.env.ENCRYPTION_KEY_FALLBACKS || '').trim();
+    if (!raw) {
+      return [];
+    }
+
+    const primarySecret = String(this.tokenVault?.secret || '').trim();
+    const keys = raw
+      .split(/[\n,]+/)
+      .map((value) => value.trim())
+      .filter(Boolean);
+
+    const unique = [];
+    const seen = new Set();
+    for (const key of keys) {
+      if (key === primarySecret || seen.has(key)) {
+        continue;
+      }
+      seen.add(key);
+      unique.push(new TokenVault({ encryptionSecret: key }));
+    }
+
+    if (unique.length > 0) {
+      logger.warn('AccountService fallback encryption keys are enabled', {
+        count: unique.length,
+      });
+    }
+
+    return unique;
+  }
+
+  async _migrateStackmailSecret(account, password) {
+    const sealedPassword = this.tokenVault.seal(password);
+    if (sealedPassword === account.secretCipher) {
+      return account;
+    }
+
+    const updated = await this.userStore.upsertStackmailAccount({
+      userId: account.userId,
+      providerEmail: account.providerEmail,
+      displayName: account.displayName || account.providerEmail,
+      secretCipher: sealedPassword,
+    });
+
+    if (updated) {
+      logger.info('Migrated stackmail secret to primary ENCRYPTION_KEY', {
+        accountId: account.id,
+      });
+      return updated;
+    }
+
+    return account;
+  }
+
+  async _migrateOAuthTokens(account, tokens) {
+    const sealed = this.tokenVault.sealOAuthTokens(tokens);
+    const updated = await this.userStore.updateAccountTokens(account.id, {
+      tokenCipher: sealed.accessTokenCipher,
+      refreshCipher: sealed.refreshTokenCipher,
+      expiresAt: sealed.expiresAt,
+    });
+
+    if (updated) {
+      logger.info('Migrated oauth tokens to primary ENCRYPTION_KEY', {
+        accountId: account.id,
+      });
+      return updated;
+    }
+
+    return account;
   }
 }
