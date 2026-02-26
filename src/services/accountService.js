@@ -10,6 +10,8 @@ import {
   UnauthorizedError,
 } from '../utils/errors.js';
 
+const FALLBACK_KEYS_ENV = 'ENCRYPTION_KEY_FALLBACKS';
+
 export class AccountService {
   constructor({
     userStore,
@@ -18,6 +20,8 @@ export class AccountService {
     stackmailConfig,
     commandTimeoutMs,
     directLoginEnabled = true,
+    fallbackTokenVaults = null,
+    fallbackEncryptionKeys = null,
   }) {
     this.userStore = userStore;
     this.tokenVault = tokenVault;
@@ -25,7 +29,10 @@ export class AccountService {
     this.stackmailConfig = stackmailConfig;
     this.commandTimeoutMs = commandTimeoutMs;
     this.directLoginEnabled = directLoginEnabled;
-    this.fallbackTokenVaults = this._buildFallbackTokenVaults();
+    this.fallbackTokenVaults = this._resolveFallbackTokenVaults({
+      fallbackTokenVaults,
+      fallbackEncryptionKeys,
+    });
   }
 
   async listAccounts(userId) {
@@ -348,17 +355,44 @@ export class AccountService {
     throw new UnauthorizedError(unauthorizedMessage);
   }
 
-  _buildFallbackTokenVaults() {
-    const raw = String(process.env.ENCRYPTION_KEY_FALLBACKS || '').trim();
-    if (!raw) {
+  _resolveFallbackTokenVaults({ fallbackTokenVaults, fallbackEncryptionKeys }) {
+    if (Array.isArray(fallbackTokenVaults) && fallbackTokenVaults.length > 0) {
+      return fallbackTokenVaults;
+    }
+
+    const keys = Array.isArray(fallbackEncryptionKeys)
+      ? fallbackEncryptionKeys
+      : this._loadFallbackEncryptionKeysFromEnv();
+    if (!keys.length) {
       return [];
     }
 
-    const primarySecret = String(this.tokenVault?.secret || '').trim();
-    const keys = raw
+    const vaults = this._buildFallbackTokenVaultsFromKeys(keys);
+    if (vaults.length > 0) {
+      logger.warn('AccountService fallback encryption keys are enabled', {
+        count: vaults.length,
+      });
+    }
+    return vaults;
+  }
+
+  _loadFallbackEncryptionKeysFromEnv() {
+    const raw = String(process.env[FALLBACK_KEYS_ENV] || '').trim();
+    if (!raw) {
+      return [];
+    }
+    return this._parseFallbackKeys(raw);
+  }
+
+  _parseFallbackKeys(raw) {
+    return String(raw)
       .split(/[\n,]+/)
       .map((value) => value.trim())
       .filter(Boolean);
+  }
+
+  _buildFallbackTokenVaultsFromKeys(keys) {
+    const primarySecret = String(this.tokenVault?.secret || '').trim();
 
     const unique = [];
     const seen = new Set();
@@ -369,13 +403,6 @@ export class AccountService {
       seen.add(key);
       unique.push(new TokenVault({ encryptionSecret: key }));
     }
-
-    if (unique.length > 0) {
-      logger.warn('AccountService fallback encryption keys are enabled', {
-        count: unique.length,
-      });
-    }
-
     return unique;
   }
 
