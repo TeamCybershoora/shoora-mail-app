@@ -133,7 +133,7 @@ export class AccountService {
     }
 
     if (account.provider === 'stackmail') {
-      const password = this.tokenVault.open(account.secretCipher);
+      const password = this._openEncryptedValue(account.secretCipher);
       if (!password) {
         throw new UnauthorizedError('StackMail credentials missing. Please sign in again.');
       }
@@ -159,7 +159,7 @@ export class AccountService {
   async getValidAccessToken(account) {
     this._assertGoogleOAuthConfigured();
 
-    const opened = this.tokenVault.openOAuthTokens(account);
+    const opened = this._openOAuthTokens(account);
     const threshold = Date.now() + 60_000;
     if (opened.accessToken && Number(opened.expiresAt || 0) > threshold) {
       return {
@@ -298,5 +298,25 @@ export class AccountService {
     }
 
     return out;
+  }
+
+  _openEncryptedValue(cipherText) {
+    try {
+      return this.tokenVault.open(cipherText);
+    } catch {
+      throw new UnauthorizedError(
+        'Stored account credentials could not be decrypted. Check ENCRYPTION_KEY and sign in again.',
+      );
+    }
+  }
+
+  _openOAuthTokens(account) {
+    try {
+      return this.tokenVault.openOAuthTokens(account);
+    } catch {
+      throw new UnauthorizedError(
+        'Stored OAuth tokens could not be decrypted. Check ENCRYPTION_KEY and relink account.',
+      );
+    }
   }
 }
